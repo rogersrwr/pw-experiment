@@ -2,6 +2,12 @@ name: Playwright Tests
 on:
   workflow_dispatch:
 
+permissions:
+  id-token: write
+  contents: write
+  pages: write
+    
+
 jobs:
   p-test1:
     runs-on: windows-latest

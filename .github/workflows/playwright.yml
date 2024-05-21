@@ -80,7 +80,7 @@ jobs:
       run: npx playwright install --with-deps
 
     - name: Run Playwright tests
-      run: npx playwright test tests/01test.spec.ts --shard${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+      run: npx playwright test tests/01test.spec.ts --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
     - uses: actions/upload-artifact@v4
       if: always()
       with:

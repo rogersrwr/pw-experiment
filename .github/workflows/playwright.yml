@@ -39,8 +39,8 @@ jobs:
     - uses: actions/upload-artifact@v4
       if: always()
       with:
-        name: playwright-report1
-        path: playwright-report/
+        name: blob-report-1
+        path: blob-report/
         retention-days: 2
 
         
@@ -80,7 +80,7 @@ jobs:
     - uses: actions/upload-artifact@v4
       if: always()
       with:
-        name: playwright-report2
-        path: playwright-report/
+        name: blob-report-2
+        path: blob-report/
         retention-days: 2
     

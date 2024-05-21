@@ -40,7 +40,7 @@ jobs:
       if: always()
       with:
         name: blob-report-1
-        path: blob-report/
+        path: D:\a\pw-experiment\pw-experiment\all-blob-reports
         retention-days: 2
 
     - name: Run Playwright tests 2
@@ -49,7 +49,7 @@ jobs:
       if: always()
       with:
         name: blob-report-2
-        path: blob-report/
+        path: D:\a\pw-experiment\pw-experiment\all-blob-reports
         retention-days: 2
         
     - name: Download blob reports from GitHub Actions Artifacts
@@ -60,7 +60,7 @@ jobs:
         merge-multiple: true
 
     - name: Merge into HTML Report
-      run: npx playwright merge-reports --reporter html ./all-blob-reports
+      run: npx playwright merge-reports --reporter html D:\a\pw-experiment\pw-experiment\all-blob-reports
   
     - name: Upload HTML report
       uses: actions/upload-artifact@v4

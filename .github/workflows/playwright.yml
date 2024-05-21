@@ -39,18 +39,14 @@ jobs:
     - uses: actions/upload-artifact@v4
       if: always()
       with:
-        name: blob-report-5
-        path: blob-report/
+        name: playwright-report1
+        path: playwright-report/
         retention-days: 2
 
         
   p-test2:
     runs-on: windows-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        shardIndex: [1, 2, 3, 4]
-        shardTotal: [4]
+
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
@@ -80,11 +76,11 @@ jobs:
       run: npx playwright install --with-deps
 
     - name: Run Playwright tests
-      run: npx playwright test tests/01test.spec.ts --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+      run: npx playwright test tests/01test.spec.ts --workers 4
     - uses: actions/upload-artifact@v4
       if: always()
       with:
-        name: blob-report-${{ matrix.shardIndex }}
-        path: blob-report/
+        name: playwright-report2
+        path: playwright-report/
         retention-days: 2
     

@@ -1,13 +1,13 @@
 import { test, expect } from '@playwright/test';
 
-test('has title', async ({ page }) => {
+test('1has title', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/Playwright/);
 });
 
-test('get started link', async ({ page }) => {
+test('1get started link', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
   // Click the get started link.
@@ -21,14 +21,14 @@ test('get started link', async ({ page }) => {
 
 
 
-test('has title', async ({ page }) => {
+test('2has title', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/Playwright/);
 });
 
-test('get started link', async ({ page }) => {
+test('2get started link', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
   // Click the get started link.
@@ -43,14 +43,14 @@ test('get started link', async ({ page }) => {
 
 
 
-test('has title', async ({ page }) => {
+test('3has title', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/Playwright/);
 });
 
-test('get started link', async ({ page }) => {
+test('3get started link', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
   // Click the get started link.

@@ -4,6 +4,7 @@ const login = process.env.LOGIN;
 const password = process.env.PASS;
 
 test('test', async ({ page }) => {
+  test.slow();
   await page.goto('https://voice.google.com/about');
   await page.getByRole('link', { name: 'Sign in' }).click();
   await page.getByLabel('Email or phone').fill(`${login}`);

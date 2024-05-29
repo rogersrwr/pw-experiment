@@ -12,7 +12,7 @@ test('test', async ({ page }) => {
   await page.getByLabel('Email or phone').press('Enter');
   await page.getByLabel('Enter your password').fill(`${password}`);
   //await page.getByRole('button', { name: 'Next' }).click();
-  await page.getByLabel('Email or phone').press('Enter');
+  await page.getByLabel('Enter your password').press('Enter');
   await page.getByRole('tab', { name: 'Messages' }).click();
   //await page.getByLabel('Message by ‪79041‬: test msg').click();
 });

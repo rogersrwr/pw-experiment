@@ -18,8 +18,13 @@ test('test', async ({ page }) => {
   await page.getByLabel('Enter your password').press('Enter');
 
   try {
-    await expect(page.getByRole('link', { name: 'Use another phone or computer' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Confirm your recovery phone' })).toBeVisible();
     await page.getByRole('link', { name: 'Confirm your recovery phone' }).click();
+    await page.getByLabel('Phone number').click();
+    await page.getByLabel('Phone number').fill('4252467014');
+    await page.getByLabel('Phone number').press('Enter');
+    //await page.goto('https://voice.google.com/u/0/calls');
+    await expect(page.getByRole('heading', { name: 'Hi BrightArrow1!' })).toBeVisible();
   } catch (error) {
     await page.goto("google.com");
   }

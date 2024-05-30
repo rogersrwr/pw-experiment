@@ -17,10 +17,17 @@ test('test', async ({ page }) => {
   //await page.getByRole('button', { name: 'Next' }).click();
   await page.getByLabel('Enter your password').press('Enter');
 
-  const visible = await page.locator('div', { hasText: 'Confirm your recovery phone' });
-  if (await visible.isVisible()) {
+  try {
+    await expect(page.getByRole('link', { name: 'Use another phone or computer' })).toBeVisible();
+    await page.getByRole('link', { name: 'Confirm your recovery phone' }).click();
+  } catch (error) {
     await page.goto("google.com");
   }
+
+  // const visible = await page.locator('div', { hasText: 'Confirm your recovery phone' });
+  // if (await visible.isVisible()) {
+  //   await page.goto("google.com");
+  // }
 
   await page.getByRole('tab', { name: 'Messages' }).click();
   //await page.getByLabel('Message by ‪79041‬: test msg').click();

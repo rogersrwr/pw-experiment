@@ -17,8 +17,8 @@ test('test', async ({ page }) => {
   //await page.getByRole('button', { name: 'Next' }).click();
   await page.getByLabel('Enter your password').press('Enter');
 
-  const visible = await page.getByRole('link', { name: 'Confirm your recovery phone' }).isVisible();
-  if (visible) {
+  const visible = await page.getByRole('link', { name: 'Confirm your recovery phone' });
+  if (await visible.isVisible()) {
     await page.goto("google.com");
   }
 

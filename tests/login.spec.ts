@@ -24,19 +24,22 @@ test('test', async ({ page }) => {
     await page.getByLabel('Phone number').fill('4252467014');
     await page.getByLabel('Phone number').press('Enter');
     //await page.goto('https://voice.google.com/u/0/calls');
-    await page.getByRole('tab', { name: 'Messages' }).click();
+    await expect(page.getByRole('heading', { name: 'Hi BrightArrow1!' })).toBeVisible();
     await page.getByRole('tab', { name: 'Messages' }).click();
     await page.getByLabel('Message by ‪79041‬: test msg').click();
-    await expect(page.getByRole('heading', { name: 'Hi BrightArrow1!' })).toBeVisible();
+    
 
     //path if no new message
     //await page.getByRole('tab', { name: 'Messages' }).click();
     //await page.getByLabel('Message by ‪79041‬: test msg').click();
 
+    //original if there are messages
     //await page.getByRole('tab', { name: 'Messages: 1 unread' }).click();
-    
-    await page.getByRole('tab', { name: 'Messages' }).click();
-    await page.getByLabel('Unread. Message by ‪79041‬:').click();
+    //await page.getByLabel('Unread. Message by ‪79041‬:').click();
+
+    //more flexible if there are messages
+    //await page.getByRole('tab', { name: 'Messages' }).click();
+    //await page.getByLabel('Unread. Message by ‪79041‬:').click();
     } catch (error) {
     await page.goto("google.com");
   }

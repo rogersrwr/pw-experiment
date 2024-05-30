@@ -24,7 +24,7 @@ test('test', async ({ page }) => {
     await page.getByLabel('Phone number').fill('4252467014');
     await page.getByLabel('Phone number').press('Enter');
     //await page.goto('https://voice.google.com/u/0/calls');
-    await expect(page.getByRole('heading', { name: 'Hi BrightArrow1!' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Hi BrightArrow1!' })).toBeVisible({timeout: 10000});
     await page.getByRole('tab', { name: 'Messages' }).click();
     await page.getByLabel('Message by ‪79041‬: test msg').click();
     //await page.getByLabel('Unread. Message by ‪79041‬:').click();

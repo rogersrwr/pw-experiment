@@ -7,7 +7,7 @@ const tPass = process.env.TNOW_PASS;
 
 
 test('test', async ({ page }) => {
-  //test.slow();
+  test.slow();
   await page.goto('https://voice.google.com/about');
   await page.getByRole('link', { name: 'Sign in' }).click();
   await page.getByLabel('Email or phone').fill(`${login}`);
@@ -24,8 +24,20 @@ test('test', async ({ page }) => {
     await page.getByLabel('Phone number').fill('4252467014');
     await page.getByLabel('Phone number').press('Enter');
     //await page.goto('https://voice.google.com/u/0/calls');
+    await page.getByRole('tab', { name: 'Messages' }).click();
+    await page.getByRole('tab', { name: 'Messages' }).click();
+    await page.getByLabel('Message by ‪79041‬: test msg').click();
     await expect(page.getByRole('heading', { name: 'Hi BrightArrow1!' })).toBeVisible();
-  } catch (error) {
+
+    //path if no new message
+    //await page.getByRole('tab', { name: 'Messages' }).click();
+    //await page.getByLabel('Message by ‪79041‬: test msg').click();
+
+    //await page.getByRole('tab', { name: 'Messages: 1 unread' }).click();
+    
+    await page.getByRole('tab', { name: 'Messages' }).click();
+    await page.getByLabel('Unread. Message by ‪79041‬:').click();
+    } catch (error) {
     await page.goto("google.com");
   }
 
@@ -34,7 +46,7 @@ test('test', async ({ page }) => {
   //   await page.goto("google.com");
   // }
 
-  await page.getByRole('tab', { name: 'Messages' }).click();
+  
   //await page.getByLabel('Message by ‪79041‬: test msg').click();
 });
 

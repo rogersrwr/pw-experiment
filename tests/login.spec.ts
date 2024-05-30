@@ -26,8 +26,8 @@ test('test', async ({ page }) => {
     //await page.goto('https://voice.google.com/u/0/calls');
     await expect(page.getByRole('heading', { name: 'Hi BrightArrow1!' })).toBeVisible();
     await page.getByRole('tab', { name: 'Messages' }).click();
-    //await page.getByLabel('Message by ‪79041‬: test msg').click();
-    await page.getByLabel('Unread. Message by ‪79041‬:').click();
+    await page.getByLabel('Message by ‪79041‬: test msg').click();
+    //await page.getByLabel('Unread. Message by ‪79041‬:').click();
 
     //path if no new message
     //await page.getByRole('tab', { name: 'Messages' }).click();

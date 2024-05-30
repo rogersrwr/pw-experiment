@@ -7,7 +7,7 @@ const tPass = process.env.TNOW_PASS;
 
 
 test('test', async ({ page }) => {
-  test.slow();
+  //test.slow();
   await page.goto('https://voice.google.com/about');
   await page.getByRole('link', { name: 'Sign in' }).click();
   await page.getByLabel('Email or phone').fill(`${login}`);

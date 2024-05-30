@@ -11,6 +11,8 @@ permissions:
 env:
   LOGIN: ${{ secrets.EMAIL }}
   PASS: ${{ secrets.PASS }}
+  NOW_USER: ${{ secrets.TNOW_USER }}
+  NOW_PASS: ${{ secrets.TNOW_PASS }}
 
 jobs:
   p-test1:

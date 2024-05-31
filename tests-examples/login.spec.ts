@@ -21,7 +21,7 @@ test('test', async ({ page }) => {
     await expect(page.getByRole('link', { name: 'Confirm your recovery phone' })).toBeVisible();
     await page.getByRole('link', { name: 'Confirm your recovery phone' }).click();
     await page.getByLabel('Phone number').click();
-    await page.getByLabel('Phone number').fill('4252467014');
+    await page.getByLabel('Phone number').fill(INSERT NUMBER HERE AGAIN LATER);
     await page.getByLabel('Phone number').press('Enter');
     //await page.goto('https://voice.google.com/u/0/calls');
     await expect(page.getByRole('heading', { name: 'Hi BrightArrow1!' })).toBeVisible({timeout: 10000});

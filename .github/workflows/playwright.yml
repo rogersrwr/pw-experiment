@@ -13,59 +13,27 @@ env:
   PASS: ${{ secrets.PASS }}
   NOW_USER: ${{ secrets.TNOW_USER }}
   NOW_PASS: ${{ secrets.TNOW_PASS }}
+  BA_USER: ${{ secrets.BA_USER }}
+  BA_PASS: ${{ secrets.BA_PASS }}
 
 jobs:
-  p-test1:
-    runs-on: windows-latest
-
+  test:
+    timeout-minutes: 10
+    runs-on: macos-latest
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
       with:
-        node-version: lts/*
-    - name: Cache node_modules
-      uses: actions/cache@v4
-      id: node-modules-cache
-      with:
-        path: |
-          node_modules
-        key: modules-${{ hashFiles('package-lock.json') }}
-
+        node-version: 18
     - name: Install dependencies
       run: npm ci
-
-    - name: Cache Playwright binaries
-      uses: actions/cache@v4
-      id: cache-playwright
-      with:
-        path: |
-          C:\Users\runneradmin\AppData\Local\ms-playwright
-        key: playwright-${{ hashFiles('package-lock.json') }}
-        enableCrossOsArchive: true
     - name: Install Playwright Browsers
-      if: steps.cache-playwright.outputs.cache-hit != 'true'
       run: npx playwright install --with-deps
-
     - name: Run Playwright tests
-      run: npx playwright test 
+      run: npx playwright test
     - uses: actions/upload-artifact@v4
       if: always()
       with:
         name: playwright-report
         path: playwright-report/
-        retention-days: 2
-
-
-
-    - name: Setup Pages
-      if: always()
-      uses: actions/configure-pages@v5
-    - name: Upload artifact
-      if: always()
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: 'playwright-report/'
-    - name: Deploy to GitHub Pages
-      if: always()
-      id: deployment
-      uses: actions/deploy-pages@v4
+        retention-days: 30

@@ -32,7 +32,7 @@ export default defineConfig({
     trace: 'on',
     video: 'on',
     launchOptions: {
-      slowMo: 400,
+      slowMo: 600,
     },
   },
 
@@ -43,26 +43,26 @@ export default defineConfig({
     //   testDir: "./",
     //   testMatch: "global-setup.ts",
     // },
-    // {
-    //   name: 'chromium',
-    //   dependencies: ['setup'],
-    //   use: { ...devices['Desktop Chrome'] },
-    // },
+    {
+      name: 'chromium',
+      //dependencies: ['setup'],
+      use: { ...devices['Desktop Chrome'] },
+    },
     // {
     //   name: 'example',
     //   dependencies: ['setup'],
     //   use: { ...devices['Desktop Chrome'] },
     // },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-
     // {
-    //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
     // },
+
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
+    },
 
     /* Test against mobile viewports. */
     // {
